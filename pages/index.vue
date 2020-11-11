@@ -14,7 +14,7 @@ export default {
 
   asyncData({ $axios }) {
     return $axios
-      .get('http://alexclark-api.test/api/v1/Page/1.json')
+      .get(`${process.env.API_URL}/page/home`)
       .then((res) => {
         return {
           pageData: res.data,
@@ -23,10 +23,6 @@ export default {
       .catch((err) => {
         console.log(err);
       });
-  },
-
-  mounted() {
-    // console.log(this.pageData);
   },
 
   head() {
@@ -41,13 +37,9 @@ export default {
       ],
     };
   },
+
+  mounted() {
+    // console.log({ data: this.pageData });
+  },
 };
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-</style>

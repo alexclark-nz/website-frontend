@@ -13,6 +13,12 @@ export default {
     },
   },
 
+  head() {
+    return {
+      title: this.message,
+    };
+  },
+
   computed: {
     statusCode() {
       return (this.error && this.error.statusCode) || 500;
@@ -20,12 +26,6 @@ export default {
     message() {
       return this.error.message;
     },
-  },
-
-  head() {
-    return {
-      title: this.message,
-    };
   },
 };
 </script>

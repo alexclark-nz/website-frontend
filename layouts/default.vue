@@ -1,11 +1,80 @@
 <template>
-  <div>
+  <div :class="wrapperClasses">
     <Header />
     <Nuxt />
+    <Footer />
+    <Modal
+      title="Send me a message"
+      :is-modal-active="isModalActive"
+      @close-modal="setModalActive(false)"
+    >
+      <ContactForm @cancel="setModalActive(false)" />
+    </Modal>
   </div>
 </template>
 
-<style>
+<script>
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import Modal from '@/components/Modal';
+import ContactForm from '@/components/ContactForm';
+
+export default {
+  components: {
+    Header,
+    Footer,
+    Modal,
+    ContactForm
+  },
+
+  data() {
+    return {
+
+    }
+  },
+
+  computed: {
+    wrapperClasses() {
+      if (this.$store.state.darkMode) {
+        return 'wrapper dark';
+      } else {
+        return 'wrapper';
+      }
+    },
+
+    isModalActive() {
+      return this.$store.state.isContactModalActive
+    }
+  },
+
+  mounted() {
+    if (window && window !== 'undefined') {
+      this.checkLocalStorage()
+    }
+  },
+
+  methods: {
+    checkLocalStorage() {
+      const darkModeValue = localStorage.getItem('darkMode');
+      if (!darkModeValue) { return; }
+      let darkMode;
+      if (darkModeValue === 'true') {
+        darkMode = true;
+      } else {
+        darkMode = false;
+      }
+
+      this.$store.dispatch('toggleDarkMode', darkMode);
+    },
+
+    setModalActive(bool) {
+      this.$store.dispatch('toggleContactModal', bool)
+    }
+  }
+}
+</script>
+
+<style lang="scss">
 @font-face {
   font-family: 'Inter';
   src: url('~assets/fonts/Inter-Regular.woff2'), url('~assets/fonts/Inter-Regular.woff');
@@ -62,7 +131,23 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  @apply bg-gray-200;
+  --text-color: #000;
+  --background-color: #edf2f7;
+  --border-color: #000;
+}
+
+.wrapper {
+  @apply min-h-screen;
+  @apply flex;
+  @apply flex-col;
+  color: var(--text-color);
+  background: var(--background-color);
+  transition: all 0.3s ease-in-out;
+  &.dark {
+    --text-color: #fff;
+    --background-color: #1a202c;
+    --border-color: #fff;
+  }
 }
 
 *,

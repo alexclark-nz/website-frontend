@@ -1,14 +1,14 @@
 <template>
-  <section class="container">
+  <section class="container overflow-x-scroll">
     <h2
-      class="text-xl mb-2 text-gray-700"
       v-if="ShowTitle"
+      class="text-xl mb-2 text-gray-700"
     >
       {{ Title }}
     </h2>
     <pre
-      class="rounded-lg overflow-hidden text-left"
       v-if="Content"
+      class="rounded-lg overflow-hidden text-left"
     ><code v-highlight :class="Language">{{ Content }}</code></pre>
   </section>
 </template>
@@ -22,6 +22,7 @@ export default {
     ShowTitle: Number,
     Content: String,
     Language: String,
+    Pos: Number
   },
 
   computed: {

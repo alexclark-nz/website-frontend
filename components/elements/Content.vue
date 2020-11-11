@@ -1,20 +1,39 @@
 <template>
-  <section class="container flex flex-col lg:flex-row">
-    <h2
-      class="text-4xl font-bold tracking-tight w-64 mt-2"
-      v-if="ShowTitle"
-    >{{ Title }}</h2>
+  <section class="container">
     <div
-      v-html="Content"
-      class="ml-8
+      v-if="ShowTitle"
+      class="flex flex-col lg:flex-row lg:-mx-4 items-start"
+    >
+      <div class="w-full lg:w-2/5 lg:px-4 flex flex-wrap">
+        <SectionLink
+          :Pos="Pos"
+          :Slug="Slug"
+        />
+        <h2 class="text-4xl font-bold tracking-tight mt-2 leading-tight">{{ Title }}</h2>
+        <hr class="w-full mt-4">
+      </div>
+      <div
+        class="
     max-w-4xl
     mt-4
-    space-y-4"
-    ></div>
+    space-y-4
+    w-full
+    lg:w-3/5
+    lg:px-4"
+        v-html="Content"
+      />
+    </div>
+    <div
+      v-else
+      class="space-y-4"
+      v-html="Content"
+    />
   </section>
 </template>
 
 <script>
+import SectionLink from '../SectionLink';
+
 export default {
   props: {
     ID: Number,
@@ -22,9 +41,17 @@ export default {
     Slug: String,
     ShowTitle: Number,
     Content: String,
+    Pos: Number
   },
+
+  components: {
+    SectionLink
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+hr {
+  border-color: var(--border-color);
+}
 </style>

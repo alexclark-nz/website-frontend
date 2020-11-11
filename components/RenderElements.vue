@@ -1,12 +1,13 @@
 <template>
-  <div class="grid gap-10">
+  <div class="grid gap-20">
     <element
-      v-for="element in elements"
-      :key="element.Slug"
       :is="element.Component"
-      v-bind="element"
+      v-for="(element, index) in elements"
       :id="element.Slug"
-    ></element>
+      :key="element.Slug"
+      v-bind="element"
+      :pos="index + 1"
+    />
   </div>
 </template>
 
@@ -14,12 +15,14 @@
 import Banner from './elements/Banner.vue';
 import Content from './elements/Content.vue';
 import Code from './elements/Code.vue';
+import RecentPosts from './elements/RecentPosts';
 
 export default {
   components: {
     Banner,
     Code,
     Content,
+    RecentPosts
   },
 
   props: {
@@ -30,7 +33,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.elements)
+    // console.log(this.elements)
   }
 
 };

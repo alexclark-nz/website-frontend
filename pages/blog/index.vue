@@ -1,15 +1,41 @@
 <template>
-  <div></div>
+  <main>
+    <RenderElements :elements="pageData.Elements" />
+  </main>
 </template>
 
 <script>
+import RenderElements from '@/components/RenderElements.vue';
+
 export default {
+  components: {
+    RenderElements,
+  },
+
+  asyncData({ $axios }) {
+    return $axios
+      .get(`${process.env.API_URL}/page/blog`)
+      .then((res) => {
+        return {
+          pageData: res.data,
+        };
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
   head() {
     return {
-      title: 'Blog',
+      title: this.pageData.Title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.pageData.MetaDescription,
+        },
+      ],
     };
   },
 };
 </script>
-
-<style lang="scss" scoped></style>
