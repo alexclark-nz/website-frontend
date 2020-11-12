@@ -16,11 +16,7 @@
           href="https://tailwindcss.com/"
           target="_blank"
           rel="noopener"
-        >Tailwind CSS</a>, Hosted on <a
-          href="https://www.netlify.com/"
-          target="_blank"
-          rel="noopener"
-        >Netlify</a>.</span>
+        >Tailwind CSS</a>.</span>
     </div>
   </footer>
 </template>
