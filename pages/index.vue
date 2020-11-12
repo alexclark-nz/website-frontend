@@ -37,9 +37,5 @@ export default {
       ],
     };
   },
-
-  mounted() {
-    // console.log({ data: this.pageData });
-  },
 };
 </script>

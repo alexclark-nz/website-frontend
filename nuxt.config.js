@@ -11,7 +11,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Full stack developer living in Auckland, New Zealand.',
+        content: 'Web developer living in Auckland, New Zealand.',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -21,7 +21,9 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    { src: '~plugins/ga.js', mode: 'client' }
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: false,
@@ -41,12 +43,20 @@ export default {
     '@nuxtjs/axios',
     ['nuxt-highlightjs', {
       style: 'night-owl'
-    }]
+    }],
+    '@nuxtjs/recaptcha'
   ],
+
+  recaptcha: {
+    hideBadge: true, // Hide badge element (v3 & v2 via size=invisible)
+    siteKey: '6Lf5ROIZAAAAACRUqTgWmQcLinSday2ytm0eht0u', // Site key for requests
+    version: 3, // Version
+    size: 'invisible'
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://alexclark-api.test/api/v1',
+    baseURL: 'http://api.alexclark.co.nz/api/v1',
     progress: true,
   },
 

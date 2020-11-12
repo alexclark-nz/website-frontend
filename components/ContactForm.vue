@@ -45,6 +45,20 @@
     >
       Send Message
     </button>
+    <p class="mt-6">
+      <small>This site is protected by reCAPTCHA and the Google
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener"
+        >Privacy Policy</a> and
+        <a
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noopener"
+        >Terms of Service</a> apply.
+      </small>
+    </p>
   </form>
   <div v-else-if="status === 'sending'">
     Sending message..

@@ -49,20 +49,16 @@ export default {
     ID: Number,
     Title: String,
     Slug: String,
-    ShowTitle: Number,
+    ShowTitle: String,
     Content: String,
     Posts: Array,
     Pos: Number,
-    ShowSummary: Number,
+    ShowSummary: String,
   },
 
   components: {
     SectionLink,
     PostPreview,
-  },
-
-  mounted() {
-    console.log(this.Posts);
   },
 
   methods: {

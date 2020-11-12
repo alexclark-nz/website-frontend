@@ -28,7 +28,7 @@ import { format } from 'date-fns';
 export default {
   props: {
     post: Object,
-    showSummary: Number
+    showSummary: String
   },
 
   computed: {
