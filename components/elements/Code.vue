@@ -2,7 +2,7 @@
   <section class="container overflow-x-scroll">
     <h2
       v-if="ShowTitle"
-      class="text-xl mb-2 text-gray-700"
+      class="mb-2"
     >
       {{ Title }}
     </h2>

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-20">
+  <div class="grid gap-12">
     <element
       :is="element.Component"
       v-for="(element, index) in elements"

@@ -2,7 +2,7 @@
   <a
     class="section-number"
     :href="link"
-  >{{ Pos }}</a>
+  >#</a>
 </template>
 
 <script>

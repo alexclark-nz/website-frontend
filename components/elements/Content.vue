@@ -2,30 +2,28 @@
   <section class="container">
     <div
       v-if="ShowTitle"
-      class="flex flex-col lg:flex-row lg:-mx-4 items-start"
+      class="flex flex-col items-start"
     >
-      <div class="w-full lg:w-2/5 lg:px-4 flex flex-wrap">
+      <div class="flex flex-wrap">
         <SectionLink
           :Pos="Pos"
           :Slug="Slug"
         />
-        <h2 class="text-4xl font-bold tracking-tight mt-2 leading-tight">{{ Title }}</h2>
-        <hr class="w-full mt-4">
+        <h2 class="text-3xl font-bold tracking-tight mt-2 leading-tight">{{ Title }}</h2>
       </div>
       <div
         class="
-    max-w-4xl
-    mt-4
-    space-y-4
-    w-full
-    lg:w-3/5
-    lg:px-4"
+        ml-8
+        mt-4
+        space-y-4
+        w-full
+        "
         v-html="Content"
       />
     </div>
     <div
       v-else
-      class="space-y-4"
+      class="space-y-4 ml-8"
       v-html="Content"
     />
   </section>

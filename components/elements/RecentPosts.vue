@@ -20,7 +20,7 @@
       class="ml-8 flex flex-col space-y-12"
     >
       <PostPreview
-        v-for="post in Posts"
+        v-for="post in sortedPosts"
         :key="`post-${post.ID}`"
         :post="post"
         :showSummary="ShowSummary"
@@ -31,7 +31,7 @@
       class="ml-8 grid md:grid-cols-3 gap-10 items-end"
     >
       <PostPreview
-        v-for="post in Posts"
+        v-for="post in sortedPosts"
         :key="`post-${post.ID}`"
         :post="post"
         :showSummary="ShowSummary"
@@ -59,6 +59,12 @@ export default {
   components: {
     SectionLink,
     PostPreview,
+  },
+
+  computed: {
+    sortedPosts() {
+      return [...this.Posts].reverse();
+    }
   },
 
   methods: {
