@@ -18,7 +18,7 @@
     "core-js": "^3.6.5",
     "date-fns": "^2.16.1",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.15.3",
     "nuxt-highlightjs": "^1.0.1",
     "vue-highlightjs": "^1.3.3",
     "vuex-persistedstate": "^4.0.0-beta.1"
